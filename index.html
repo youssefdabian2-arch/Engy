@@ -1,0 +1,512 @@
+Put your HTML text here<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#ffd6e5" />
+<title>سؤال لإنجي 💗</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *,
+  *::before,
+  *::after { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #fff7fa 0%, #ffe4ee 25%, #ffc9dd 55%, #ff9dbd 100%);
+    background-size: 300% 300%;
+    animation: bgShift 18s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 1.2s ease;
+  }
+
+  @keyframes bgShift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+
+  body.party {
+    background: linear-gradient(135deg, #ffe3ec 0%, #ffb3cd 35%, #ff7ba8 70%, #f0437e 100%);
+    background-size: 300% 300%;
+  }
+
+  /* ===== قلوب الخلفية ===== */
+  .hearts-bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .float-heart {
+    position: absolute;
+    bottom: -80px;
+    animation-name: floatUp;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform, opacity;
+    filter: drop-shadow(0 4px 8px rgba(255, 120, 165, .25));
+  }
+
+  @keyframes floatUp {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+    12%  { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { transform: translate3d(24px, -118vh, 0) rotate(28deg); opacity: 0; }
+  }
+
+  /* ===== الكارت الأساسي ===== */
+  .card {
+    position: relative;
+    z-index: 2;
+    width: min(680px, 92vw);
+    padding: clamp(26px, 5vw, 50px) clamp(18px, 5vw, 46px);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.74);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(255, 255, 255, 0.95);
+    border-radius: 34px;
+    box-shadow: 0 26px 70px rgba(214, 51, 108, 0.22),
+                0 4px 14px rgba(214, 51, 108, 0.08);
+    transition: opacity .5s ease, transform .5s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  .card.hide {
+    opacity: 0;
+    transform: scale(.86) translateY(-24px);
+    pointer-events: none;
+  }
+
+  .question {
+    margin: 0 0 6px;
+    font-size: clamp(1.45rem, 6vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.6;
+    color: #c2185b;
+    text-shadow: 0 3px 14px rgba(255, 255, 255, .9);
+    animation: questionIn .8s cubic-bezier(.34, 1.56, .64, 1) both;
+  }
+
+  @keyframes questionIn {
+    from { opacity: 0; transform: translateY(-18px) scale(.94); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .tease {
+    min-height: 2.8em;
+    margin: 4px 0 10px;
+    font-size: clamp(.95rem, 3.4vw, 1.2rem);
+    font-weight: 700;
+    line-height: 1.5;
+    color: #b02a5b;
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+
+  .tease.show { opacity: 1; }
+
+  .tease.pop { animation: teasePop .5s cubic-bezier(.34, 1.56, .64, 1); }
+
+  @keyframes teasePop {
+    0%   { transform: scale(.82); opacity: .2; }
+    60%  { transform: scale(1.06); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* ===== الأزرار ===== */
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 3vw, 26px);
+  }
+
+  .btn {
+    --s: 1;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 800;
+    border-radius: 999px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3em;
+    outline: none;
+    transition:
+      font-size .45s cubic-bezier(.34, 1.56, .64, 1),
+      padding .45s cubic-bezier(.34, 1.56, .64, 1),
+      transform .22s ease,
+      box-shadow .35s ease,
+      filter .3s ease;
+  }
+
+  .btn:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, .9), 0 0 0 8px rgba(214, 51, 108, .35);
+  }
+
+  /* زر أيوة */
+  .yes {
+    font-size: calc(1.05rem * var(--s));
+    padding: calc(14px * var(--s)) calc(30px * (1 + (var(--s) - 1) * 0.5));
+    color: #fff;
+    background: linear-gradient(135deg, #ff7aa8 0%, #ff3d77 55%, #e01e5a 100%);
+    box-shadow: 0 14px 32px rgba(224, 30, 90, .38),
+                0 4px 10px rgba(224, 30, 90, .22),
+                inset 0 -3px 0 rgba(0, 0, 0, .08);
+  }
+
+  .yes:hover {
+    transform: translateY(-2px) scale(1.04);
+    filter: brightness(1.05);
+  }
+
+  .yes:active { transform: scale(.96); }
+
+  /* زر لأ */
+  .no {
+    font-size: calc(1.02rem * var(--s));
+    padding: calc(13px * var(--s)) calc(28px * (1 + (var(--s) - 1) * 0.5));
+    color: #d6336c;
+    background: #ffffff;
+    border: 2px solid #ffc2d6;
+    box-shadow: 0 10px 24px rgba(214, 51, 108, .18),
+                inset 0 -3px 0 rgba(214, 51, 108, .06);
+  }
+
+  .no:hover { filter: brightness(.98); }
+  .no:active { transform: scale(.95); }
+
+  .no.shake { animation: shake .5s ease; }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    20%      { transform: translateX(-9px) rotate(-5deg); }
+    40%      { transform: translateX(9px) rotate(5deg); }
+    60%      { transform: translateX(-7px) rotate(-3deg); }
+    80%      { transform: translateX(7px) rotate(3deg); }
+  }
+
+  /* ===== شاشة الاحتفال ===== */
+  .success {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .8s ease;
+  }
+
+  .success.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .success-card {
+    max-width: 820px;
+    padding: clamp(28px, 6vw, 58px) clamp(20px, 5vw, 52px);
+    background: rgba(255, 255, 255, 0.86);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 2px solid rgba(255, 255, 255, .95);
+    border-radius: 38px;
+    box-shadow: 0 34px 90px rgba(214, 51, 108, .32);
+    transform: scale(.65);
+    transition: transform .85s cubic-bezier(.34, 1.56, .64, 1);
+  }
+
+  .success.show .success-card { transform: scale(1); }
+
+  .big-heart {
+    font-size: clamp(2.6rem, 11vw, 4.6rem);
+    line-height: 1;
+    margin-bottom: 14px;
+    animation: beat 1.3s ease-in-out infinite;
+    filter: drop-shadow(0 8px 18px rgba(255, 60, 120, .35));
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    22%      { transform: scale(1.2); }
+    44%      { transform: scale(.98); }
+    66%      { transform: scale(1.12); }
+  }
+
+  .success-text {
+    margin: 0;
+    font-size: clamp(1.35rem, 5.4vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.9;
+    color: #d6336c;
+    text-shadow: 0 3px 18px rgba(255, 190, 215, .9);
+  }
+
+  /* ===== القلوب المتطايرة والاحتفال ===== */
+  .confetti {
+    position: fixed;
+    z-index: 60;
+    pointer-events: none;
+    animation-name: burst;
+    animation-timing-function: cubic-bezier(.16, .84, .44, 1);
+    animation-fill-mode: forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes burst {
+    0% {
+      transform: translate(-50%, -50%) scale(.3) rotate(0deg);
+      opacity: 0;
+    }
+    14% { opacity: 1; }
+    100% {
+      transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.15) rotate(var(--rot));
+      opacity: 0;
+    }
+  }
+
+  .rain-heart {
+    position: fixed;
+    top: -70px;
+    z-index: 5;
+    pointer-events: none;
+    animation-name: rainFall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    will-change: transform, opacity;
+  }
+
+  @keyframes rainFall {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: .95; }
+    100% { transform: translateY(115vh) rotate(45deg); opacity: 0; }
+  }
+
+  @media (max-width: 420px) {
+    .question { line-height: 1.5; }
+    .card { border-radius: 28px; }
+    .success-card { border-radius: 30px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body { animation: none; }
+    .float-heart { animation-duration: 26s !important; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- قلوب الخلفية -->
+  <div class="hearts-bg" id="heartsBg" aria-hidden="true"></div>
+
+  <!-- السؤال -->
+  <main class="card" id="card">
+    <h1 class="question">بتحبيني يا إنجي؟ 🥹💗</h1>
+    <p class="tease" id="tease" aria-live="polite"></p>
+    <div class="buttons">
+      <button class="btn yes" id="yesBtn" type="button">أيوة 💗</button>
+      <button class="btn no" id="noBtn" type="button">لأ 🙈</button>
+    </div>
+  </main>
+
+  <!-- رسالة الحب -->
+  <div class="success" id="success" aria-hidden="true">
+    <div class="success-card">
+      <div class="big-heart">💗</div>
+      <h2 class="success-text">وأنا كمان بحببببببك يا روحي و بعشقك و بموت فيكي 💓</h2>
+    </div>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  var heartsBg = document.getElementById('heartsBg');
+  var card     = document.getElementById('card');
+  var yesBtn   = document.getElementById('yesBtn');
+  var noBtn    = document.getElementById('noBtn');
+  var tease    = document.getElementById('tease');
+  var success  = document.getElementById('success');
+
+  function rand(min, max) {
+    return min + Math.random() * (max - min);
+  }
+
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  /* ============ 1) قلوب الخلفية ============ */
+  var BG_EMOJIS = ['💗', '💖', '💕', '❤️', '💓', '🩷', '💞'];
+
+  for (var i = 0; i < 24; i++) {
+    var h = document.createElement('span');
+    h.className = 'float-heart';
+    h.textContent = pick(BG_EMOJIS);
+    h.style.left = rand(0, 100).toFixed(2) + 'vw';
+    h.style.fontSize = rand(12, 34).toFixed(0) + 'px';
+    h.style.animationDuration = rand(9, 20).toFixed(1) + 's';
+    h.style.animationDelay = '-' + rand(0, 20).toFixed(1) + 's';
+    heartsBg.appendChild(h);
+  }
+
+  /* ============ 2) جمل زر "لأ" ============ */
+  var MESSAGES = [
+    'طب فكري تاني يا إنجي 🥺',
+    'مش شايفة إن أيوة أحلى؟ 😂',
+    'قلبي هيزعل كده 😭',
+    'طب اختاري أيوة بقى 🙈',
+    'لأ إيه بس يا إنجي؟! 😤💔',
+    'أنا مش هسيبك غير لما تقولي أيوة 😌',
+    'الزر ده مش هينفعك في حاجة 😂😂',
+    'إنجييييي 🥹💗',
+    'حرام عليكي والله 🥺',
+    'طيب ما تجربي أيوة... هتعجبك 🌹',
+    'أنا زعلت بجد دلوقتي 😔💔',
+    'خلاص هستنى براحتك... بس أيوة أهون 😂💗'
+  ];
+
+  var noClicks = 0;
+
+  function showTease(text) {
+    tease.classList.remove('pop');
+    void tease.offsetWidth; /* إعادة تشغيل الأنيميشن */
+    tease.textContent = text;
+    tease.classList.add('show', 'pop');
+  }
+
+  /* ============ 3) ضغطات زر "لأ" ============ */
+  noBtn.addEventListener('click', function () {
+    noClicks++;
+
+    /* زر أيوة يكبر وزر لأ يصغر شوية */
+    var yesScale = Math.min(1 + noClicks * 0.17, 2.4);
+    var noScale  = Math.max(1 - noClicks * 0.05, 0.62);
+
+    yesBtn.style.setProperty('--s', yesScale.toFixed(2));
+    noBtn.style.setProperty('--s', noScale.toFixed(2));
+
+    /* الجملة المتغيرة */
+    showTease(MESSAGES[Math.min(noClicks - 1, MESSAGES.length - 1)]);
+
+    /* رجّة خفيفة لزر لأ */
+    noBtn.classList.remove('shake');
+    void noBtn.offsetWidth;
+    noBtn.classList.add('shake');
+  });
+
+  noBtn.addEventListener('animationend', function () {
+    noBtn.classList.remove('shake');
+  });
+
+  /* ============ 4) ضغطة زر "أيوة" ============ */
+  var celebrated = false;
+
+  yesBtn.addEventListener('click', function () {
+    if (celebrated) return;
+    celebrated = true;
+
+    document.body.classList.add('party');
+    card.classList.add('hide');
+
+    setTimeout(function () {
+      card.style.display = 'none';
+      success.classList.add('show');
+      success.setAttribute('aria-hidden', 'false');
+      burst();
+      startRain();
+    }, 460);
+  });
+
+  /* ============ 5) انفجار القلوب ============ */
+  var BURST_EMOJIS = ['💗', '💖', '💕', '❤️', '💓', '💞', '🌹', '✨'];
+
+  function burst() {
+    var cx = window.innerWidth / 2;
+    var cy = window.innerHeight / 2;
+    var maxDist = Math.max(window.innerWidth, window.innerHeight) * 0.6;
+
+    for (var i = 0; i < 48; i++) {
+      var el = document.createElement('span');
+      el.className = 'confetti';
+      el.textContent = pick(BURST_EMOJIS);
+
+      var angle = Math.random() * Math.PI * 2;
+      var dist  = rand(110, maxDist);
+
+      el.style.setProperty('--dx', (Math.cos(angle) * dist).toFixed(1) + 'px');
+      el.style.setProperty('--dy', (Math.sin(angle) * dist).toFixed(1) + 'px');
+      el.style.setProperty('--rot', rand(-360, 360).toFixed(0) + 'deg');
+
+      el.style.left = cx + 'px';
+      el.style.top  = cy + 'px';
+      el.style.fontSize = rand(16, 40).toFixed(0) + 'px';
+
+      var dur = rand(1.6, 3.0);
+      el.style.animationDuration = dur.toFixed(2) + 's';
+      el.style.animationDelay = rand(0, 0.35).toFixed(2) + 's';
+
+      document.body.appendChild(el);
+
+      (function (node, ms) {
+        setTimeout(function () {
+          if (node.parentNode) node.parentNode.removeChild(node);
+        }, ms);
+      })(el, (dur + 0.6) * 1000);
+    }
+  }
+
+  /* ============ 6) مطر القلوب المستمر ============ */
+  var RAIN_EMOJIS = ['💗', '💖', '💕', '❤️', '💓', '💞', '✨'];
+
+  function startRain() {
+    setInterval(function () {
+      var el = document.createElement('span');
+      el.className = 'rain-heart';
+      el.textContent = pick(RAIN_EMOJIS);
+
+      el.style.left = rand(0, 98).toFixed(2) + 'vw';
+      el.style.fontSize = rand(16, 38).toFixed(0) + 'px';
+
+      var dur = rand(3, 6);
+      el.style.animationDuration = dur.toFixed(2) + 's';
+
+      document.body.appendChild(el);
+
+      (function (node, ms) {
+        setTimeout(function () {
+          if (node.parentNode) node.parentNode.removeChild(node);
+        }, ms);
+      })(el, dur * 1000 + 600);
+    }, 260);
+  }
+
+})();
+</script>
+</body>
+</html>
